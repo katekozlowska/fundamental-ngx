@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 /**
  * The component that represents a list item.
@@ -24,18 +24,15 @@ export class ListItemDirective {
     /** Whether tab is selected */
     @Input()
     @HostBinding('class.is-selected')
-    selected = false;
+    selected: boolean = false;
 
-    /** @hidden */
-    constructor(public itemEl: ElementRef) {}
+    /** Whether there is no data inside list item */
+    @Input()
+    @HostBinding('class.fd-list__item--no-data')
+    noData: boolean = false;
 
-    /** @hidden */
-    public focus(): void {
-        this.itemEl.nativeElement.focus();
-    }
-
-    /** @hidden */
-    public click(): void {
-        this.itemEl.nativeElement.click();
-    }
+    /** Whether there is item performs some action */
+    @Input()
+    @HostBinding('class.fd-list__item--action')
+    action: boolean = false;
 }
