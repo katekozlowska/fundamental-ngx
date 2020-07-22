@@ -118,6 +118,13 @@ export const ROUTES: Routes = [
                     import('./component-docs/platform-forms/platform-input/platform-input-docs.module').then(
                         (m) => m.PlatformInputDocsModule
                     )
+            },
+            {
+                path: 'object-status',
+                loadChildren: () =>
+                    import('./component-docs/platform-object-status/platform-object-status-docs.module').then(
+                        (m) => m.PlatformObjectStatusDocsModule
+                    )
             }
         ]
     }
