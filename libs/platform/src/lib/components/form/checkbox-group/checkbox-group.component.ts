@@ -34,6 +34,18 @@ import { FormFieldControl } from '../form-control';
 })
 export class CheckboxGroupComponent extends CollectionBaseInput {
     /**
+     * CBG label for accessibility
+     */
+    @Input()
+    ariaLabel: string;
+
+    /**
+     * Element id to label the group.
+     */
+    @Input()
+    ariaLabelledById: string;
+
+    /**
      * value for selected checkboxes.
      */
     get value(): any {
