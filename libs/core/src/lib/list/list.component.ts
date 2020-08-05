@@ -24,8 +24,8 @@ import { startWith, takeUntil } from 'rxjs/operators';
     host: {
         class: 'fd-list',
     },
-    encapsulation: ViewEncapsulation.None,
     styleUrls: ['./list.component.scss'],
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListComponent implements AfterContentInit, OnDestroy {

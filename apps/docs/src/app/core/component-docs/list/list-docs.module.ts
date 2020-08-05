@@ -13,6 +13,7 @@ import {
     ListSecondaryExampleComponent
 } from './examples/list-examples.component';
 import { CheckboxModule, InfiniteScrollModule, LinkModule, ListModule, RadioModule, DragAndDropModule } from '@fundamental-ngx/core';
+import { ListDndExampleComponent } from './examples/list-dnd-example/list-dnd-example.component';
 
 const routes: Routes = [
     {
@@ -44,7 +45,8 @@ const routes: Routes = [
         ListInfiniteScrollExampleComponent,
         ListSecondaryExampleComponent,
         ListIconExampleComponent,
-        ListComplexExampleComponent
+        ListComplexExampleComponent,
+        ListDndExampleComponent
     ]
 })
 export class ListDocsModule {}

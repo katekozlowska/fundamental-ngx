@@ -1,0 +1,9 @@
+<h3>Drag And Drop</h3>
+
+<ul fd-list fd-dnd-list [listMode]="true" [(items)]="values">
+    <li fd-list-item *ngFor="let value of values">
+        <span fd-list-title>
+            List item {{value}}
+        </span>
+    </li>
+</ul>
