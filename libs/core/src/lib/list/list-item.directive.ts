@@ -20,17 +20,17 @@ export class ListItemDirective implements DefaultMenuItem {
     @Input()
     @HostBinding('attr.aria-selected')
     @HostBinding('class.is-selected')
-    selected: boolean = false;
+    selected = false;
 
     /** Whether there is no data inside list item */
     @Input()
     @HostBinding('class.fd-list__item--no-data')
-    noData: boolean = false;
+    noData = false;
 
     /** Whether there is item performs some action */
     @Input()
     @HostBinding('class.fd-list__item--action')
-    action: boolean = false;
+    action = false;
 
     @Output()
     keyDown: EventEmitter<KeyboardEvent> = new EventEmitter<KeyboardEvent>();

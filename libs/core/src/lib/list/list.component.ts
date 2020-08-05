@@ -61,6 +61,11 @@ export class ListComponent implements AfterContentInit, OnDestroy {
 
     /** Whether list component has removed borders */
     @Input()
+    @HostBinding('class.fd-list--selection')
+    selection = false;
+
+    /** Whether list component has removed borders */
+    @Input()
     @HostBinding('class.fd-list--navigation-indication')
     showNavigationArrow: boolean = false;
 
