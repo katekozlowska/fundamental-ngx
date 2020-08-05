@@ -12,7 +12,7 @@ import {
     ListIconExampleComponent,
     ListSecondaryExampleComponent
 } from './examples/list-examples.component';
-import { CheckboxModule, InfiniteScrollModule, LinkModule, ListModule, RadioModule } from '@fundamental-ngx/core';
+import { CheckboxModule, InfiniteScrollModule, LinkModule, ListModule, RadioModule, DragAndDropModule } from '@fundamental-ngx/core';
 
 const routes: Routes = [
     {
@@ -33,7 +33,8 @@ const routes: Routes = [
         LinkModule,
         CheckboxModule,
         RadioModule,
-        InfiniteScrollModule
+        InfiniteScrollModule,
+        DragAndDropModule
     ],
     exports: [RouterModule],
     declarations: [

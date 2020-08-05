@@ -11,7 +11,8 @@ import { DefaultMenuItem } from '../menu/default-menu-item.class';
     selector: '[fdListItem] ,[fd-list-item]',
     templateUrl: './list-item.component.html',
     host: {
-        class: 'fd-list__item'
+        class: 'fd-list__item',
+        tabindex: '0'
     }
 })
 export class ListItemDirective implements DefaultMenuItem {
@@ -39,7 +40,7 @@ export class ListItemDirective implements DefaultMenuItem {
     checkbox: CheckboxComponent;
 
     constructor(
-        private _elementRef: ElementRef
+        public elementRef: ElementRef
     ) {}
 
 
@@ -50,12 +51,10 @@ export class ListItemDirective implements DefaultMenuItem {
     }
 
     click(): void {
-        this._elementRef.nativeElement.click();
+        this.elementRef.nativeElement.click();
     }
 
     focus(): void {
-        this._elementRef.nativeElement.focus();
+        this.elementRef.nativeElement.focus();
     }
-
-
 }

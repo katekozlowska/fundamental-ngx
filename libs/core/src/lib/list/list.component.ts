@@ -22,7 +22,7 @@ import { startWith, takeUntil } from 'rxjs/operators';
     selector: '[fd-list]',
     templateUrl: `./list.component.html`,
     host: {
-        class: 'fd-list'
+        class: 'fd-list',
     },
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./list.component.scss'],
