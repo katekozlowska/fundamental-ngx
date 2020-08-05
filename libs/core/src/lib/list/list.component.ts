@@ -85,11 +85,11 @@ export class ListComponent implements AfterContentInit, OnDestroy {
         private _keyboardService: MenuKeyboardService
     ) {}
 
-    ngAfterContentInit() {
+    ngAfterContentInit(): void {
         this.items.changes.pipe(takeUntil(this._onDestroy$), startWith(5)).subscribe(() => this._refreshSubscription());
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this._onDestroy$.next();
         this._onDestroy$.complete();
     }

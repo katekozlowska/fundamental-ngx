@@ -1,6 +1,18 @@
-import { Component, ContentChild, ElementRef, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
+import {
+    AfterContentInit,
+    ChangeDetectionStrategy, ChangeDetectorRef,
+    Component,
+    ContentChild,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    Output
+} from '@angular/core';
 import { CheckboxComponent } from '../checkbox/checkbox/checkbox.component';
 import { DefaultMenuItem } from '../menu/default-menu-item.class';
+import { RadioButtonComponent } from '../radio/radio-button/radio-button.component';
 
 /**
  * The component that represents a list item.
@@ -13,9 +25,10 @@ import { DefaultMenuItem } from '../menu/default-menu-item.class';
     host: {
         class: 'fd-list__item',
         tabindex: '0'
-    }
+    },
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListItemDirective implements DefaultMenuItem {
+export class ListItemDirective implements DefaultMenuItem, AfterContentInit {
     /** Whether list is selected */
     @Input()
     @HostBinding('attr.aria-selected')
@@ -39,15 +52,43 @@ export class ListItemDirective implements DefaultMenuItem {
     @ContentChild(CheckboxComponent)
     checkbox: CheckboxComponent;
 
+    /** @hidden */
+    @ContentChild(RadioButtonComponent)
+    radio: RadioButtonComponent;
+
     constructor(
-        public elementRef: ElementRef
+        public elementRef: ElementRef,
+        private _changeDet: ChangeDetectorRef
     ) {}
 
+    ngAfterContentInit(): void {
+        if (this.checkbox) {
+            this.checkbox.registerOnChange(
+                this.checkboxCallback
+            );
+        }
+        if (this.radio) {
+            this.radio.registerOnChange(
+                this.radioCallback
+            );
+        }
+    }
 
     /** @hidden */
     @HostListener('keydown', ['$event'])
     keydownHandler(event: KeyboardEvent): void {
         this.keyDown.emit(event);
+    }
+
+    /** Handler for mouse events */
+    @HostListener('click', ['$event'])
+    onClick(event: MouseEvent): void {
+        if (this.checkbox) {
+            this.checkbox.nextValue();
+        }
+        if (this.radio) {
+            this.radio.labelClicked();
+        }
     }
 
     click(): void {
@@ -56,5 +97,15 @@ export class ListItemDirective implements DefaultMenuItem {
 
     focus(): void {
         this.elementRef.nativeElement.focus();
+    }
+
+    private checkboxCallback = (checkboxValue) => {
+        this.selected = checkboxValue === this.checkbox.values.trueValue;
+        this._changeDet.detectChanges();
+    }
+
+    private radioCallback = (radioValue) => {
+        this.selected = radioValue === this.radio.value;
+        this._changeDet.detectChanges();
     }
 }

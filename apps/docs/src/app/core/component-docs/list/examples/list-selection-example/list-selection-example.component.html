@@ -1,5 +1,5 @@
 <h3>Selection List</h3>
-asd
+
 <ul fd-list [selection]="true">
     <li fd-list-item>
         <fd-checkbox></fd-checkbox>
@@ -39,6 +39,30 @@ asd
     </li>
     <li fd-list-item>
         <fd-checkbox [compact]="true"></fd-checkbox>
+        <span fd-list-title>
+            List item 3
+        </span>
+    </li>
+</ul>
+
+
+<h3>Single Selection List</h3>
+
+<ul fd-list [selection]="true">
+    <li fd-list-item>
+        <fd-radio-button name="radio" [id]="'radio1'" value="radio1"></fd-radio-button>
+        <span fd-list-title>
+            List item 1
+        </span>
+    </li>
+    <li fd-list-item>
+        <fd-radio-button name="radio" [id]="'radio2'" value="radio2"></fd-radio-button>
+        <span fd-list-title>
+            List item 2
+        </span>
+    </li>
+    <li fd-list-item>
+        <fd-radio-button name="radio" [id]="'radio3'" value="radio3"></fd-radio-button>
         <span fd-list-title>
             List item 3
         </span>
