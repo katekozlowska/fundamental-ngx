@@ -1,5 +1,6 @@
-import { Component, ContentChild, HostBinding, Input } from '@angular/core';
+import { Component, ContentChild, ElementRef, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 import { CheckboxComponent } from '../checkbox/checkbox/checkbox.component';
+import { DefaultMenuItem } from '../menu/default-menu-item.class';
 
 /**
  * The component that represents a list item.
@@ -13,7 +14,7 @@ import { CheckboxComponent } from '../checkbox/checkbox/checkbox.component';
         class: 'fd-list__item'
     }
 })
-export class ListItemDirective {
+export class ListItemDirective implements DefaultMenuItem {
     /** Whether list is selected */
     @Input()
     @HostBinding('attr.aria-selected')
@@ -30,7 +31,31 @@ export class ListItemDirective {
     @HostBinding('class.fd-list__item--action')
     action: boolean = false;
 
+    @Output()
+    keyDown: EventEmitter<KeyboardEvent> = new EventEmitter<KeyboardEvent>();
+
     /** @hidden */
     @ContentChild(CheckboxComponent)
-    checkbox: CheckboxComponent
+    checkbox: CheckboxComponent;
+
+    constructor(
+        private _elementRef: ElementRef
+    ) {}
+
+
+    /** @hidden */
+    @HostListener('keydown', ['$event'])
+    keydownHandler(event: KeyboardEvent): void {
+        this.keyDown.emit(event);
+    }
+
+    click(): void {
+        this._elementRef.nativeElement.click();
+    }
+
+    focus(): void {
+        this._elementRef.nativeElement.focus();
+    }
+
+
 }
