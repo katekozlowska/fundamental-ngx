@@ -1,28 +1,22 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Component, ContentChild, HostBinding, Input } from '@angular/core';
+import { CheckboxComponent } from '../checkbox/checkbox/checkbox.component';
 
 /**
  * The component that represents a list item.
  * The list item can contain plain text, links or actions.
- *
- * ```html
- * <ul fd-list>
- *    <li fd-list-item>
- *        List item 1
- *    </li>
- * </ul>
- * ```
  */
-@Directive({
-    // TODO to be discussed
-    // tslint:disable-next-line:directive-selector
-    selector: '[fd-list-item]',
+@Component({
+    // tslint:disable-next-line:component-selector
+    selector: '[fdListItem] ,[fd-list-item]',
+    templateUrl: './list-item.component.html',
     host: {
         class: 'fd-list__item'
     }
 })
 export class ListItemDirective {
-    /** Whether tab is selected */
+    /** Whether list is selected */
     @Input()
+    @HostBinding('attr.aria-selected')
     @HostBinding('class.is-selected')
     selected: boolean = false;
 
@@ -35,4 +29,8 @@ export class ListItemDirective {
     @Input()
     @HostBinding('class.fd-list__item--action')
     action: boolean = false;
+
+    /** @hidden */
+    @ContentChild(CheckboxComponent)
+    checkbox: CheckboxComponent
 }

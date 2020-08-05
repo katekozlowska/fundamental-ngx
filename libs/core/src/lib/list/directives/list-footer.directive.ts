@@ -1,10 +1,10 @@
-import { Directive } from '@angular/core';
+import { Directive, HostBinding } from '@angular/core';
 
 @Directive({
-  selector: '[fdListFooter]'
+  selector: '[fdListFooter], [fd-list-footer]'
 })
 export class ListFooterDirective {
-
-  constructor() { }
-
+    /** @hidden */
+    @HostBinding('class.fd-list__footer')
+    fdListFooterClass: boolean = true;
 }

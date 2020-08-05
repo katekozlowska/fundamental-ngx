@@ -12,7 +12,7 @@ export class ListTitleDirective {
     @HostBinding('class.fd-list__title--no-wrap')
     noWrap: boolean = false;
 
-    /** Whether tab is selected */
+    /** @hidden */
     @HostBinding('class.fd-list__title')
     fdListTitleClass: boolean = true;
 }

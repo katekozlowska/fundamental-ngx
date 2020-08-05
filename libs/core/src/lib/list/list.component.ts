@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input, ViewEncapsulati
 @Component({
     // tslint:disable-next-line:component-selector
     selector: '[fd-list]',
-    template: `<ng-content></ng-content>`,
+    templateUrl: `./list.component.html`,
     host: {
         class: 'fd-list'
     },
@@ -19,25 +19,38 @@ export class ListComponent {
     /** Whether dropdown mode is included to component, used for Select and Combobox */
     @Input()
     @HostBinding('class.fd-list--dropdown')
-    dropdownMode = false;
+    dropdownMode: boolean = false;
 
     /** Whether multi mode is included to component, used for MultiInput */
     @Input()
     @HostBinding('class.fd-list--multi-input')
-    multiInputMode = false;
+    multiInputMode: boolean = false;
 
     /** Whether compact mode is included to component */
     @Input()
     @HostBinding('class.fd-list--compact')
-    compact = false;
+    compact: boolean = false;
 
     /** Whether list component contains message */
     @Input()
     @HostBinding('class.fd-list--has-message')
-    hasMessage = false;
+    hasMessage: boolean = false;
 
     /** Whether list component has removed borders */
     @Input()
     @HostBinding('class.fd-list--no-border')
-    noBorder = false;
+    noBorder: boolean = false;
+
+    /** Whether list component has removed borders */
+    @Input()
+    @HostBinding('class.fd-list--navigation')
+    hasNavigation: boolean = false;
+
+    /** Whether list component has removed borders */
+    @Input()
+    @HostBinding('class.fd-list--navigation-indication')
+    showNavigationArrow: boolean = false;
+
+    @Input()
+    hasDragAndDrop: boolean = false;
 }

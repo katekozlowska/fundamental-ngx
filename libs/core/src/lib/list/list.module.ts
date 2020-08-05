@@ -16,6 +16,7 @@ import { ListFormItemDirective } from './directives/list-form-item.directive';
 import { ListBylineDirective } from './directives/list-byline.directive';
 import { ListContentDirective } from './directives/list-content.directive';
 import { ListThumbnailDirective } from './directives/list-thumbnail.directive';
+import { FormModule } from '../form/form.module';
 @NgModule({
     declarations: [
         ListComponent,
@@ -33,7 +34,7 @@ import { ListThumbnailDirective } from './directives/list-thumbnail.directive';
         ListContentDirective,
         ListThumbnailDirective
     ],
-    imports: [CommonModule],
+    imports: [CommonModule, FormModule],
     exports: [
         ListComponent,
         ListItemDirective,

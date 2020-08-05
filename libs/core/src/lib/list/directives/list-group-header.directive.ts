@@ -1,10 +1,10 @@
-import { Directive } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 
 @Directive({
-  selector: '[fdListGroupHeader]'
+  selector: '[fdListGroupHeader], [fd-list-group-header]'
 })
 export class ListGroupHeaderDirective {
-
-  constructor() { }
-
+    /** @hidden */
+    @HostBinding('class.fd-list__group-header')
+    fdListGroupHeaderClass: boolean = true;
 }
