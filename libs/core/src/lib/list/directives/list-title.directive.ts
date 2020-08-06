@@ -10,9 +10,9 @@ export class ListTitleDirective {
      */
     @Input()
     @HostBinding('class.fd-list__title--no-wrap')
-    noWrap: boolean = false;
+    noWrap = false;
 
     /** @hidden */
     @HostBinding('class.fd-list__title')
-    fdListTitleClass: boolean = true;
+    fdListTitleClass = true;
 }

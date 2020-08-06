@@ -6,5 +6,5 @@ import { Directive, HostBinding } from '@angular/core';
 export class ListFooterDirective {
     /** @hidden */
     @HostBinding('class.fd-list__footer')
-    fdListFooterClass: boolean = true;
+    fdListFooterClass = true;
 }

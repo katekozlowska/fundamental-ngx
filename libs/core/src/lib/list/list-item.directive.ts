@@ -1,6 +1,7 @@
 import {
     AfterContentInit,
-    ChangeDetectionStrategy, ChangeDetectorRef,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     ContentChild,
     ElementRef,
@@ -8,7 +9,8 @@ import {
     HostBinding,
     HostListener,
     Input,
-    Output
+    Output,
+    ViewEncapsulation
 } from '@angular/core';
 import { CheckboxComponent } from '../checkbox/checkbox/checkbox.component';
 import { DefaultMenuItem } from '../menu/default-menu-item.class';
@@ -26,7 +28,8 @@ import { RadioButtonComponent } from '../radio/radio-button/radio-button.compone
         class: 'fd-list__item',
         tabindex: '0'
     },
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None
 })
 export class ListItemDirective implements DefaultMenuItem, AfterContentInit {
     /** Whether list is selected */
@@ -34,6 +37,11 @@ export class ListItemDirective implements DefaultMenuItem, AfterContentInit {
     @HostBinding('attr.aria-selected')
     @HostBinding('class.is-selected')
     selected = false;
+
+    /** Whether list is selected */
+    @Input()
+    @HostBinding('class.fd-list__item--link')
+    link = false;
 
     /** Whether there is no data inside list item */
     @Input()
@@ -65,11 +73,6 @@ export class ListItemDirective implements DefaultMenuItem, AfterContentInit {
         if (this.checkbox) {
             this.checkbox.registerOnChange(
                 this.checkboxCallback
-            );
-        }
-        if (this.radio) {
-            this.radio.registerOnChange(
-                this.radioCallback
             );
         }
     }

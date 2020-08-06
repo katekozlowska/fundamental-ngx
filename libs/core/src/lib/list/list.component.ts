@@ -32,45 +32,42 @@ export class ListComponent implements AfterContentInit, OnDestroy {
     /** Whether dropdown mode is included to component, used for Select and Combobox */
     @Input()
     @HostBinding('class.fd-list--dropdown')
-    dropdownMode: boolean = false;
+    dropdownMode = false;
 
     /** Whether multi mode is included to component, used for MultiInput */
     @Input()
     @HostBinding('class.fd-list--multi-input')
-    multiInputMode: boolean = false;
+    multiInputMode = false;
 
     /** Whether compact mode is included to component */
     @Input()
     @HostBinding('class.fd-list--compact')
-    compact: boolean = false;
+    compact = false;
 
     /** Whether list component contains message */
     @Input()
     @HostBinding('class.fd-list--has-message')
-    hasMessage: boolean = false;
+    hasMessage = false;
 
     /** Whether list component has removed borders */
     @Input()
     @HostBinding('class.fd-list--no-border')
-    noBorder: boolean = false;
+    noBorder = false;
 
     /** Whether list component has removed borders */
     @Input()
     @HostBinding('class.fd-list--navigation')
-    hasNavigation: boolean = false;
+    hasNavigation = false;
+
+    /** Whether list component has removed borders */
+    @Input()
+    @HostBinding('class.fd-list--navigation-indication')
+    navigationIndication = false;
 
     /** Whether list component has removed borders */
     @Input()
     @HostBinding('class.fd-list--selection')
     selection = false;
-
-    /** Whether list component has removed borders */
-    @Input()
-    @HostBinding('class.fd-list--navigation-indication')
-    showNavigationArrow: boolean = false;
-
-    @Input()
-    hasDragAndDrop: boolean = false;
 
     @ContentChildren(ListItemDirective)
     items: QueryList<ListItemDirective>;

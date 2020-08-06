@@ -4,15 +4,20 @@ import { Directive, HostBinding, Input } from '@angular/core';
   selector: '[fd-list-link], [fdListLink]'
 })
 export class ListLinkDirective {
+
+    /** Whether list is selected */
+    @HostBinding('class.fd-list__link')
+    fdListLinkClass = true;
+
     /** */
     @Input()
     @HostBinding('class.fd-list__link--navigation-indicator')
-    navigationIndicator: boolean = false;
+    navigationIndicator = false;
 
     /** */
     @Input()
     @HostBinding('class.is-navigated')
-    navigated: boolean = false;
+    navigated = false;
 
     /** */
     @Input()

@@ -2,7 +2,7 @@ import { Directive, ElementRef, Input, OnChanges, OnInit } from '@angular/core';
 import { applyCssClass } from '@fundamental-ngx/core';
 
 @Directive({
-  selector: '[fdListIcon]'
+  selector: '[fdListIcon], [fd-list-icon]'
 })
 export class ListIconDirective implements OnChanges, OnInit {
 

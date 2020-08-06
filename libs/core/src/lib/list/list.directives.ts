@@ -12,23 +12,6 @@ export class ListLabelDirective {}
 
 @Directive({
     // tslint:disable-next-line:directive-selector
-    selector: '[fd-list-title]',
-    host: {
-        class: 'fd-list__title'
-    }
-})
-export class ListTitleDirective {
-    /**
-     * Enabling this flag causes forcing title directive to not wrap text,
-     * instead of wrapping there will be text truncation
-     */
-    @Input()
-    @HostBinding('class.fd-list__title--no-wrap')
-    noWrap = false;
-}
-
-@Directive({
-    // tslint:disable-next-line:directive-selector
     selector: '[fd-list-secondary]',
     host: {
         class: 'fd-list__secondary'
@@ -43,15 +26,6 @@ export class ListSecondaryDirective {
     @HostBinding('class.fd-list__secondary--no-wrap')
     noWrap = false;
 }
-
-@Directive({
-    // tslint:disable-next-line:directive-selector
-    selector: '[fd-list-group-header]',
-    host: {
-        class: 'fd-list__group-header'
-    }
-})
-export class ListGroupHeaderDirective {}
 
 @Directive({
     // tslint:disable-next-line:directive-selector
@@ -94,12 +68,3 @@ export class ListIconDirective implements OnChanges, OnInit {
         return this._elementRef;
     }
 }
-
-@Directive({
-    // tslint:disable-next-line:directive-selector
-    selector: '[fd-list-footer]',
-    host: {
-        class: 'fd-list__footer'
-    }
-})
-export class ListFooterDirective {}

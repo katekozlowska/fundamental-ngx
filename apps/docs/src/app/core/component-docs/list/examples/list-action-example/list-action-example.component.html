@@ -1,0 +1,16 @@
+<h3>Cozy Mode</h3>
+
+<ul fd-list [noBorder]="true">
+    <li fd-list-group-header>List Group Header</li>
+    <li fd-list-item *ngFor="let i of items">
+        <span fd-list-title>
+            List Item {{i}}
+        </span>
+    </li>
+    <li fd-list-item [action]="true" (click)="loadMore()">
+        <button fd-list-title>
+            Load More
+        </button>
+    </li>
+    <li fd-list-footer>List Footer</li>
+</ul>

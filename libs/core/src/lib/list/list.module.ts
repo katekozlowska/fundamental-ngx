@@ -3,20 +3,17 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
 import { ListItemDirective } from './list-item.directive';
 import {
-    ListFooterDirective,
-    ListGroupHeaderDirective,
     ListIconDirective,
     ListLabelDirective,
     ListSecondaryDirective,
-    ListTitleDirective
 } from './list.directives';
 import { ListMessageDirective } from './list-message.directive';
 import { ListLinkDirective } from './directives/list-link.directive';
 import { ListFormItemDirective } from './directives/list-form-item.directive';
-import { ListBylineDirective } from './directives/list-byline.directive';
-import { ListContentDirective } from './directives/list-content.directive';
-import { ListThumbnailDirective } from './directives/list-thumbnail.directive';
 import { FormModule } from '../form/form.module';
+import { ListFooterDirective } from './directives/list-footer.directive';
+import { ListTitleDirective } from './directives/list-title.directive';
+import { ListGroupHeaderDirective } from './directives/list-group-header.directive';
 @NgModule({
     declarations: [
         ListComponent,
@@ -24,15 +21,12 @@ import { FormModule } from '../form/form.module';
         ListLabelDirective,
         ListTitleDirective,
         ListSecondaryDirective,
-        ListGroupHeaderDirective,
         ListIconDirective,
         ListFooterDirective,
+        ListGroupHeaderDirective,
         ListMessageDirective,
         ListLinkDirective,
         ListFormItemDirective,
-        ListBylineDirective,
-        ListContentDirective,
-        ListThumbnailDirective
     ],
     imports: [CommonModule, FormModule],
     exports: [
@@ -40,16 +34,13 @@ import { FormModule } from '../form/form.module';
         ListItemDirective,
         ListLabelDirective,
         ListTitleDirective,
-        ListSecondaryDirective,
-        ListGroupHeaderDirective,
-        ListIconDirective,
         ListFooterDirective,
+        ListGroupHeaderDirective,
+        ListSecondaryDirective,
+        ListIconDirective,
         ListMessageDirective,
         ListLinkDirective,
         ListFormItemDirective,
-        ListBylineDirective,
-        ListContentDirective,
-        ListThumbnailDirective
     ]
 })
 export class ListModule {}

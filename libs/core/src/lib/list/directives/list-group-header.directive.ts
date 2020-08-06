@@ -6,5 +6,5 @@ import { Directive, HostBinding, Input } from '@angular/core';
 export class ListGroupHeaderDirective {
     /** @hidden */
     @HostBinding('class.fd-list__group-header')
-    fdListGroupHeaderClass: boolean = true;
+    fdListGroupHeaderClass = true;
 }
