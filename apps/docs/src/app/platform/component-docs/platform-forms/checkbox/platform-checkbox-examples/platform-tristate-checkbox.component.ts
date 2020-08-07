@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { map } from 'rxjs/operators';
 
@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
     selector: 'fdp-tristate-checkbox',
     templateUrl: 'platform-tristate-checkbox.component.html'
 })
-export class PlatformChekboxTristateComponent implements AfterViewChecked {
+export class PlatformChekboxTristateComponent implements OnInit, AfterViewChecked {
     public havana = false;
     public beirut: boolean = null;
     public budapest = 'Yes';
@@ -18,6 +18,7 @@ export class PlatformChekboxTristateComponent implements AfterViewChecked {
 
     public cities = new FormGroup({});
     public citiesData = new SomeObject(false, 'Yes', null, false, true, null, null, false);
+    public citiesResult: any;
 
     public registrationForm = new FormGroup({
         agreements: new FormGroup({})
@@ -25,17 +26,29 @@ export class PlatformChekboxTristateComponent implements AfterViewChecked {
 
     public choices: Object = { termsAndConditions: true, marketing: true, newsletter: false };
 
+    ngOnInit(): void {
+        /**
+         * Need to add timeout here because FormGroup doesn't
+         * broadcast when it's fields are updated.
+         */
+        setTimeout(() => {
+            this.citiesResult = this.cities.getRawValue();
+        });
+    }
+
     // code for nested form group with tristate checkbox.
     ngAfterViewChecked(): void {
         this.setAgreementsOnAcceptAllChange();
         this.setControlOnAgreementsChange();
     }
 
-    public checkedChangeFunction(event: any): void {}
+    public checkedChangeFunction(event: any): void { }
 
-    public indeterminateChangeFunction(event: any): void {}
+    public indeterminateChangeFunction(event: any): void { }
 
-    public changeFunction(event: any): void {}
+    public changeFunction(event: any): void {
+        this.citiesResult = this.cities.getRawValue();
+    }
 
     private setAgreementsOnAcceptAllChange(): void {
         this.registrationForm.get('acceptAll').valueChanges.subscribe((value) => this.acceptAll(value));
@@ -94,5 +107,5 @@ class SomeObject {
         public barcelona: string | boolean,
         public athens: string | boolean,
         public sydney: string | boolean
-    ) {}
+    ) { }
 }
