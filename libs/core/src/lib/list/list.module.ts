@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
-import { ListItemDirective } from './list-item.directive';
+import { ListItemComponent } from './list-item.component';
 import {
     ListIconDirective,
     ListLabelDirective,
@@ -17,7 +17,7 @@ import { ListGroupHeaderDirective } from './directives/list-group-header.directi
 @NgModule({
     declarations: [
         ListComponent,
-        ListItemDirective,
+        ListItemComponent,
         ListLabelDirective,
         ListTitleDirective,
         ListSecondaryDirective,
@@ -31,7 +31,7 @@ import { ListGroupHeaderDirective } from './directives/list-group-header.directi
     imports: [CommonModule, FormModule],
     exports: [
         ListComponent,
-        ListItemDirective,
+        ListItemComponent,
         ListLabelDirective,
         ListTitleDirective,
         ListFooterDirective,

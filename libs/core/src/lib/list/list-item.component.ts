@@ -26,12 +26,11 @@ import { RadioButtonComponent } from '../radio/radio-button/radio-button.compone
     templateUrl: './list-item.component.html',
     host: {
         class: 'fd-list__item',
-        tabindex: '0'
     },
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None
 })
-export class ListItemDirective implements DefaultMenuItem, AfterContentInit {
+export class ListItemComponent implements DefaultMenuItem, AfterContentInit {
     /** Whether list is selected */
     @Input()
     @HostBinding('attr.aria-selected')
@@ -42,6 +41,11 @@ export class ListItemDirective implements DefaultMenuItem, AfterContentInit {
     @Input()
     @HostBinding('class.fd-list__item--link')
     link = false;
+
+    /** tab index attribute */
+    @Input()
+    @HostBinding('attr.tabindex')
+    tabIndex = 0;
 
     /** Whether there is no data inside list item */
     @Input()

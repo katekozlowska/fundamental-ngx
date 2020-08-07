@@ -21,7 +21,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ListItemDirective } from '../list/list-item.directive';
+import { ListItemComponent } from '../list/list-item.component';
 import { ListMessageDirective } from '../list/list-message.directive';
 import { ComboboxItem } from './combobox-item';
 import { MenuKeyboardService } from '../menu/menu-keyboard.service';
@@ -200,8 +200,8 @@ export class ComboboxComponent implements ComboboxInterface, ControlValueAccesso
     inputTextChange: EventEmitter<string> = new EventEmitter<string>();
 
     /** @hidden */
-    @ViewChildren(ListItemDirective)
-    listItems: QueryList<ListItemDirective>;
+    @ViewChildren(ListItemComponent)
+    listItems: QueryList<ListItemComponent>;
 
     /** @hidden */
     @ViewChild('searchInputElement')

@@ -8,7 +8,7 @@ import {
     QueryList,
     ViewEncapsulation
 } from '@angular/core';
-import { ListItemDirective } from './list-item.directive';
+import { ListItemComponent } from './list-item.component';
 import { MenuKeyboardService } from '../..';
 import { merge, Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
@@ -69,8 +69,8 @@ export class ListComponent implements AfterContentInit, OnDestroy {
     @HostBinding('class.fd-list--selection')
     selection = false;
 
-    @ContentChildren(ListItemDirective)
-    items: QueryList<ListItemDirective>;
+    @ContentChildren(ListItemComponent)
+    items: QueryList<ListItemComponent>;
 
     /** An RxJS Subject that will kill the data stream upon component’s destruction (for unsubscribing)  */
     private readonly _onDestroy$: Subject<void> = new Subject<void>();
