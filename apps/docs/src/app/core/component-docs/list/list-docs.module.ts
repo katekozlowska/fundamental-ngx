@@ -12,12 +12,19 @@ import {
     ListIconExampleComponent,
     ListSecondaryExampleComponent
 } from './examples/list-examples.component';
-import { CheckboxModule, InfiniteScrollModule, LinkModule, ListModule, RadioModule, DragAndDropModule } from '@fundamental-ngx/core';
+import {
+    CheckboxModule,
+    InfiniteScrollModule,
+    LinkModule,
+    ListModule,
+    RadioModule,
+    DragAndDropModule,
+    BusyIndicatorModule
+} from '@fundamental-ngx/core';
 import { ListDndExampleComponent } from './examples/list-dnd-example/list-dnd-example.component';
 import { ListSelectionExampleComponent } from './examples/list-selection-example/list-selection-example.component';
 import { ListBorderlessExampleComponent } from './examples/list-borderless-example/list-borderless-example.component';
 import { ListActionExampleComponent } from './examples/list-action-example/list-action-example.component';
-import { ListWrappingExampleComponent } from './examples/list-wrapping-example/list-wrapping-example.component';
 import { ListNavigationExampleComponent } from './examples/list-navigation-example/list-navigation-example.component';
 
 const routes: Routes = [
@@ -40,7 +47,8 @@ const routes: Routes = [
         CheckboxModule,
         RadioModule,
         InfiniteScrollModule,
-        DragAndDropModule
+        DragAndDropModule,
+        BusyIndicatorModule
     ],
     exports: [RouterModule],
     declarations: [
@@ -55,7 +63,6 @@ const routes: Routes = [
         ListSelectionExampleComponent,
         ListBorderlessExampleComponent,
         ListActionExampleComponent,
-        ListWrappingExampleComponent,
         ListNavigationExampleComponent
     ]
 })

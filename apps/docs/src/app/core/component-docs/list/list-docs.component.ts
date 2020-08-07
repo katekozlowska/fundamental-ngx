@@ -16,43 +16,6 @@ import { Icons } from '../../../documentation/utilities/icons';
     templateUrl: './list-docs.component.html'
 })
 export class ListDocsComponent {
-    static schema: any = {
-        properties: {
-            properties: {
-                type: 'object',
-                properties: {
-                    items: {
-                        type: ''
-                    },
-                    action: {
-                        type: 'object',
-                        properties: {
-                            icon: {
-                                type: 'string',
-                                enum: Icons
-                            },
-                            label: {
-                                type: 'string'
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        type: 'object'
-    };
-
-    schema: Schema;
-
-    data: any = {
-        properties: {
-            items: ['List Item 1', 'List Item 2', 'List Item 3', 'List Item 4'],
-            action: {
-                icon: 'edit',
-                label: 'Delete'
-            }
-        }
-    };
 
     simpleList: ExampleFile[] = [
         {
@@ -99,12 +62,4 @@ export class ListDocsComponent {
             component: 'ListInfiniteScrollExampleComponent'
         }
     ];
-
-    constructor(private schemaFactory: SchemaFactoryService) {
-        this.schema = this.schemaFactory.getComponent('list');
-    }
-
-    onSchemaValues(data): void {
-        this.data = data;
-    }
 }

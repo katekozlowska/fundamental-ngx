@@ -3,33 +3,34 @@ import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Component({
-  selector: 'fd-list-action-example',
-  templateUrl: './list-action-example.component.html'
+    selector: 'fd-list-action-example',
+    templateUrl: './list-action-example.component.html',
+    styleUrls: ['./list-action-example.component.scss']
 })
 export class ListActionExampleComponent {
+    readonly ITEMS_AMOUNT_ON_LOAD = 5;
 
     loading = false;
 
-    items = [
-        1,
-        2,
-        3,
-        4,
-        5
-    ]
+    items = [1, 2, 3, 4, 5];
 
     loadMore(): void {
-        of(this.getNewItems())
+        this.loading = true;
+        of(this._getNewItems())
             .pipe(
                 delay(2000)
             )
-            .
+            .subscribe(result => {
+                this.items = this.items.concat(result);
+                this.loading = false;
+            })
+        ;
     }
 
-    getNewItems(): number[] {
+    _getNewItems(): number[] {
         const lastItem = this._lastItem();
         const items = [];
-        for (let i = lastItem; i < lastItem + 5; ++i) {
+        for (let i = lastItem; i < lastItem + this.ITEMS_AMOUNT_ON_LOAD; ++i) {
             items.push(i);
         }
         return items;
