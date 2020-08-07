@@ -46,7 +46,7 @@ export class PlatformChekboxTristateComponent implements OnInit, AfterViewChecke
 
     public indeterminateChangeFunction(event: any): void { }
 
-    public changeFunction(event: any): void {
+    public changeFunction(): void {
         this.citiesResult = this.cities.getRawValue();
     }
 

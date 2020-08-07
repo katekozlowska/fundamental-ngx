@@ -3,18 +3,18 @@
     <fdp-form-field #paris [id]="'paris'" [label]="'Paris'" zone="zLeft" rank="1">
         <fdp-checkbox [name]="'paris-cb'" [value]="'Yes'" [tristate]="true"
             (checkedChange)="checkedChangeFunction($event)" (indeterminateChange)="indeterminateChangeFunction($event)"
-            (change)="changeFunction($event)" [formControl]="paris.formControl"></fdp-checkbox>
+            (change)="changeFunction()" [formControl]="paris.formControl"></fdp-checkbox>
     </fdp-form-field>
 
     <fdp-form-field #doha [id]="'doha'" [label]="'Doha'" zone="zLeft" rank="3">
         <fdp-checkbox [name]="'doha-cb'" [value]="'Yes'" [tristate]="true" [formControl]="doha.formControl"
-            (change)="changeFunction($event)">
+            (change)="changeFunction()">
         </fdp-checkbox>
     </fdp-form-field>
 
     <fdp-form-field #amsterdam [id]="'amsterdam'" [label]="'Amsterdam'" zone="zLeft" rank="5">
         <fdp-checkbox [name]="'amsterdam-cb'" [value]="'Yes'" [tristate]="true" [formControl]="amsterdam.formControl"
-            (change)="changeFunction($event)">
+            (change)="changeFunction()">
         </fdp-checkbox>
     </fdp-form-field>
 

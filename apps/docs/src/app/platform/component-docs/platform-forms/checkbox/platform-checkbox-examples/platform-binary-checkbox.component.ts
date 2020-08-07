@@ -32,7 +32,7 @@ export class PlatformCompactChekboxExampleComponent implements OnInit {
 
     public indeterminateChangeFunction(event: any): void { }
 
-    public changeFunction(event: any): void {
+    public changeFunction(): void {
         this.result = this.customForm.getRawValue();
     }
 }

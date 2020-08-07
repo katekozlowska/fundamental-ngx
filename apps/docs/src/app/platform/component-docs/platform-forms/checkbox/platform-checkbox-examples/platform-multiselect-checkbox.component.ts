@@ -35,7 +35,7 @@ export class PlatformCozyChekboxExampleComponent implements OnInit {
 
     public indeterminateChangeFunction(event: any): void { }
 
-    public changeFunction(event: any): void {
+    public changeFunction(): void {
         this.result = this.form1.getRawValue();
     }
 }
