@@ -2,7 +2,7 @@
 <h3>Checkbox group created from projected checkboxes</h3>
 <fdp-form-group [multiLayout]="true" [formGroup]="form1">
     <fdp-form-field #fl1 [id]="'fruits'" [label]="'My favourite fruits:'" zone="zLeft" rank="1">
-        <fdp-checkbox-group [name]="'fruits'" [formControl]="fl1.formControl">
+        <fdp-checkbox-group [name]="'fruits'" [formControl]="fl1.formControl" (change)="changeFunction()">
             <fdp-checkbox [value]="'apple'" [label]="'Apple'" [disabled]="true"></fdp-checkbox>
             <fdp-checkbox [value]="'banana'" [label]="'Banana'"></fdp-checkbox>
             <fdp-checkbox [value]="'guava'" [label]="'Guava'" [disabled]="true"></fdp-checkbox>
@@ -10,12 +10,12 @@
         </fdp-checkbox-group>
     </fdp-form-field>
 </fdp-form-group>
-<span style="margin-left: 2rem;">Favourites: {{ form1.controls.fruits?.value }}</span>
+<span style="margin-left: 2rem;">Favourites: {{ result1?.fruits |json }}</span>
 
 <p>Pre-selection based on value passed</p>
 <fdp-form-group [multiLayout]="true" [formGroup]="form2" [object]="hobbies">
     <fdp-form-field #fl2 [id]="'hobbies'" [label]="'My Hobbies:'" zone="zLeft" rank="1">
-        <fdp-checkbox-group [name]="'hobby'" [formControl]="fl2.formControl">
+        <fdp-checkbox-group [name]="'hobby'" [formControl]="fl2.formControl" (change)="changeFunction()">
             <fdp-checkbox [value]="'cooking'" [label]="'Cooking'"></fdp-checkbox>
             <fdp-checkbox [value]="'painting'" [label]="'Painting'"></fdp-checkbox>
             <fdp-checkbox [value]="'coding'" [label]="'Coding'"></fdp-checkbox>
@@ -23,7 +23,7 @@
         </fdp-checkbox-group>
     </fdp-form-field>
 </fdp-form-group>
-<span style="margin-left: 2rem;">Hobbies: {{ form2.controls.hobbies?.value }}</span>
+<span style="margin-left: 2rem;">Hobbies: {{ result2?.hobbies |json }}</span>
 <br />
 <br />
 
@@ -38,19 +38,13 @@
         </fdp-checkbox-group>
     </fdp-form-field>
 </fdp-form-group>
-<span style="margin-left: 2rem;">Visited Countries: {{ form3.controls.visited1?.value }}</span>
+<span style="margin-left: 2rem;">Visited Countries: {{ form3.controls.visited.value |json }}</span>
 <br />
 <br />
 <p>Disabled checkbox group</p>
 <fdp-form-group [multiLayout]="true" [formGroup]="form3">
-    <fdp-form-field
-        #fl3
-        [id]="'visited countries'"
-        [label]="'Disabled checkbox Group: '"
-        [disabled]="true"
-        zone="zLeft"
-        rank="1"
-    >
+    <fdp-form-field #fl3 [id]="'visited countries'" [label]="'Disabled checkbox Group: '" [disabled]="true" zone="zLeft"
+        rank="1">
         <fdp-checkbox-group [name]="'countries'" [formControl]="fl3.formControl">
             <fdp-checkbox [value]="'Italy'" [label]="'Italy'"></fdp-checkbox>
             <fdp-checkbox [value]="'France'" [label]="'France'"></fdp-checkbox>

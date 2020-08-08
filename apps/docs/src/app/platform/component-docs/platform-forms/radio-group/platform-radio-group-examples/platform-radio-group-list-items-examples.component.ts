@@ -1,11 +1,11 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, ChangeDetectorRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'fdp-platform-radio-group-list-items-example',
     templateUrl: './platform-radio-group-list-items-example.component.html'
 })
-export class PlatformRadioGroupListItemsExampleComponent implements DoCheck {
+export class PlatformRadioGroupListItemsExampleComponent implements DoCheck, OnInit {
     favoriteOption = '';
     favoriteOption2 = 'winter';
     favBrand = 'xiomi'
@@ -57,6 +57,27 @@ export class PlatformRadioGroupListItemsExampleComponent implements DoCheck {
             disabled: false
         }
     ];
+
+    result3: any;
+    result4: any;
+
+    constructor(cd: ChangeDetectorRef) {}
+
+    ngOnInit(): void {
+        /**
+         * Need to add timeout here because FormGroup doesn't
+         * broadcast when it's fields are updated.
+         */
+        setTimeout(() => {
+            this.result3 = this.form3.getRawValue();
+            this.result4 = this.form4.getRawValue();
+        });
+    }
+
+    public changeFunction(): void {
+        this.result3 = this.form3.getRawValue();
+        this.result4 = this.form4.getRawValue();
+    }
 
     ngDoCheck(): void {
         this.form1.controls.example1.setErrors({ invalid: true });

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { SelectItem } from '@fundamental-ngx/platform';
 
@@ -6,7 +6,7 @@ import { SelectItem } from '@fundamental-ngx/platform';
     selector: 'fdp-platform-checkbox-group-list-object',
     templateUrl: './platform-checkbox-group-list-object.component.html'
 })
-export class PlatformCheckboxGroupListObjectComponent {
+export class PlatformCheckboxGroupListObjectComponent implements OnInit {
     countryCurrency = [new Country('Australia', 'AUD'), new Country('India', 'INR'), new Country('USA', 'USD')];
     currency = ['AUD', 'USD'];
 
@@ -37,6 +37,30 @@ export class PlatformCheckboxGroupListObjectComponent {
     languagesKnown = '';
     currencies = ['INR', 'USD'];
     itemsData = ['pen'];
+
+    result4: any;
+    result5: any;
+    result7: any;
+
+    constructor(cd: ChangeDetectorRef) {}
+
+    ngOnInit(): void {
+        /**
+         * Need to add timeout here because FormGroup doesn't
+         * broadcast when it's fields are updated.
+         */
+        setTimeout(() => {
+            this.result4 = this.form4.getRawValue();
+            this.result5 = this.form5.getRawValue();
+            this.result7 = this.form7.getRawValue();
+        });
+    }
+
+    public changeFunction(): void {
+        this.result4 = this.form4.getRawValue();
+        this.result5 = this.form5.getRawValue();
+        this.result7 = this.form7.getRawValue();
+    }
 }
 
 class Country implements SelectItem {

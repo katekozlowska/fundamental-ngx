@@ -3,22 +3,22 @@
 <fdp-form-group multiLayout="true" [formGroup]="form1">
     <fdp-form-field #fl1 id="radiol1" zone="zLeft" rank="1">
         <fdp-radio-group name="radiol1" [list]="seasons" [isInline]="false" value="Summer" contentDensity="cozy"
-            [formControl]="fl1.formControl">
+            [formControl]="fl1.formControl" (change)="changeFunction()">
         </fdp-radio-group>
     </fdp-form-field>
 </fdp-form-group>
-<p style="margin-left: 2rem;">Selected value: {{ form1.controls.radiol1?.value }}</p>
+<p style="margin-left: 2rem;">Selected value: {{ result1?.radiol1 }}</p>
 <br />
 
 <p>Platform radio button with None (No selection) value created as an Option</p>
 <fdp-form-group multiLayout="true" [formGroup]="form2" [object]="form2Data">
     <fdp-form-field #fl2 id="radiol2" zone="zLeft" rank="1">
         <fdp-radio-group name="radiol2" [list]="seasons" [isInline]="true" contentDensity="compact" hasNoValue="true"
-            noValueLabel="(No Selection)" [formControl]="fl2.formControl">
+            noValueLabel="(No Selection)" [formControl]="fl2.formControl" (change)="changeFunction()">
         </fdp-radio-group>
     </fdp-form-field>
 </fdp-form-group>
-<p style="margin-left: 2rem;">Selected value: {{ form2.controls.radiol2?.value }}</p>
+<p style="margin-left: 2rem;">Selected value: {{ result2?.radiol2 }}</p>
 <br />
 
 <p>Radio group using FormGroup and FormControl</p>

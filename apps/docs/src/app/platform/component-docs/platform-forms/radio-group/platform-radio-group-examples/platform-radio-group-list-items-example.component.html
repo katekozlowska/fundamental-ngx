@@ -24,22 +24,23 @@
 <p>Platform radio button creation and pre-selection based on object data passed.</p>
 <fdp-form-group multiLayout="true" [formGroup]="form3" [object]="form3Data">
     <fdp-form-field #fl3 id="radiolo3" zone="zLeft" rank="1">
-        <fdp-radio-group name="radiolo3" [list]="items" [isInline]="true" [formControl]="fl3.formControl">
+        <fdp-radio-group name="radiolo3" [list]="items" [isInline]="true" [formControl]="fl3.formControl"
+            (change)="changeFunction()">
         </fdp-radio-group>
     </fdp-form-field>
 </fdp-form-group>
-<p style="margin-left: 2rem;">Selected value: {{ form3.controls.radiolo3?.value }}</p>
+<p style="margin-left: 2rem;">Selected value: {{ result3?.radiolo3 }}</p>
 <br />
 
 <p>Platform radio button created from Invoice objects. Using LookupKey and DisplayKey.</p>
 <fdp-form-group multiLayout="true" [formGroup]="form4" [object]="form4Data">
     <fdp-form-field #fl4 id="radiolo4" zone="zLeft" rank="1">
         <fdp-radio-group name="radiolo4" [list]="invoiceItems" [isInline]="true" lookupKey="item" displayKey="itemType"
-            [formControl]="fl4.formControl">
+            [formControl]="fl4.formControl" (change)="changeFunction()">
         </fdp-radio-group>
     </fdp-form-field>
 </fdp-form-group>
-<p style="margin-left: 2rem;">Preferred Brand: {{ form4.controls.radiolo4?.value }}</p>
+<p style="margin-left: 2rem;">Preferred Brand: {{ result4?.radiolo4 }}</p>
 
 <separator></separator>
 <h3>Use With Template Driven Form</h3>

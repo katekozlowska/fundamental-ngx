@@ -20,7 +20,7 @@
 
     <fdp-form-field #venice [id]="'venice'" [label]="'Venice'" zone="zRight" rank="2">
         <fdp-checkbox [name]="'venice-cb'" (checkedChange)="checkedChangeFunction($event)"
-            (indeterminateChange)="indeterminateChangeFunction($event)" (change)="changeFunction($event)"
+            (indeterminateChange)="indeterminateChangeFunction($event)"
             [tristate]="true" [formControl]="venice.formControl" (change)="changeFunction()"></fdp-checkbox>
     </fdp-form-field>
 
@@ -52,7 +52,7 @@
     <fdp-form-field [id]="'havana'" [label]="'Havana'" zone="zLeft" rank="1">
         <fdp-checkbox [name]="'havana-cb'" [value]="'Yes'" [tristate]="true"
             (checkedChange)="checkedChangeFunction($event)" (indeterminateChange)="indeterminateChangeFunction($event)"
-            (change)="changeFunction($event)" [(ngModel)]="havana"></fdp-checkbox>
+            (change)="changeFunction()" [(ngModel)]="havana"></fdp-checkbox>
     </fdp-form-field>
 
     <fdp-form-field [id]="'beirut'" [label]="'Beirut'" zone="zLeft" rank="3">
@@ -66,7 +66,7 @@
     <fdp-form-field [id]="'lisbon'" [label]="'Lisbon'" zone="zRight" rank="2">
         <fdp-checkbox [name]="'lisbon-cb'" [tristate]="true" [(ngModel)]="lisbon"
             (checkedChange)="checkedChangeFunction($event)" (indeterminateChange)="indeterminateChangeFunction($event)"
-            (change)="changeFunction($event)"></fdp-checkbox>
+            (change)="changeFunction()"></fdp-checkbox>
     </fdp-form-field>
 
     <fdp-form-field [id]="'istanbul'" [label]="'Istanbul'" zone="zRight" rank="4">
