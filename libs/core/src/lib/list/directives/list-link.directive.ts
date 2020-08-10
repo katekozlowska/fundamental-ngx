@@ -22,9 +22,9 @@ export class ListLinkDirective {
     /** */
     @Input()
     @HostBinding('class.is-selected')
-    selected: boolean = false;
+    selected = false;
 
     /** Whether tab is selected */
     @HostBinding('class.fd-list__link')
-    fdListSecondaryClass: boolean = true;
+    fdListSecondaryClass = true;
 }

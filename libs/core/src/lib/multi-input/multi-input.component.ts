@@ -25,7 +25,7 @@ import { PopoverFillMode } from '../popover/popover-directive/popover.directive'
 import { MenuKeyboardService } from '../menu/menu-keyboard.service';
 import focusTrap, { FocusTrap } from 'focus-trap';
 import { FormStates } from '../form/form-control/form-states';
-import { ListItemComponent } from '../list/list-item.component';
+import { ListItemComponent } from '../list/list-item/list-item.component';
 import { applyCssClass, CssClassBuilder, DynamicComponentService, KeyUtil } from '../utils/public_api';
 import { MultiInputMobileComponent } from './multi-input-mobile/multi-input-mobile.component';
 import { MobileModeConfig } from '../utils/interfaces/mobile-mode-config';

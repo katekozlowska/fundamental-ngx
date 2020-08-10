@@ -8,7 +8,7 @@ import {
     QueryList,
     ViewEncapsulation
 } from '@angular/core';
-import { ListItemComponent } from './list-item.component';
+import { ListItemComponent } from './list-item/list-item.component';
 import { MenuKeyboardService } from '../..';
 import { merge, Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
@@ -69,6 +69,11 @@ export class ListComponent implements AfterContentInit, OnDestroy {
     @HostBinding('class.fd-list--selection')
     selection = false;
 
+    /** Whether internal keyboard support should be enabled. It's enabled by default */
+    @Input()
+    enableKeyboardSupport = true
+
+    /** @hidden */
     @ContentChildren(ListItemComponent)
     items: QueryList<ListItemComponent>;
 
@@ -82,15 +87,25 @@ export class ListComponent implements AfterContentInit, OnDestroy {
         private _keyboardService: MenuKeyboardService
     ) {}
 
+    /** @hidden */
     ngAfterContentInit(): void {
-        this.items.changes.pipe(takeUntil(this._onDestroy$), startWith(5)).subscribe(() => this._refreshSubscription());
+        if (this.enableKeyboardSupport) {
+            this.items.changes
+                .pipe(
+                    takeUntil(this._onDestroy$),
+                    startWith(0)
+                ).subscribe(() => this._refreshSubscription())
+            ;
+        }
     }
 
+    /** @hidden */
     ngOnDestroy(): void {
         this._onDestroy$.next();
         this._onDestroy$.complete();
     }
 
+    /** @hidden */
     private _refreshSubscription(): void {
         /** Finish all of the streams, form before */
         this._onRefresh$.next();
@@ -101,7 +116,7 @@ export class ListComponent implements AfterContentInit, OnDestroy {
         this.items.forEach((item, index) =>
             item.keyDown
                 .pipe(takeUntil(refreshObs))
-                .subscribe((event) => this._keyboardService.keyDownHandler(event, index, this.items.toArray()))
+                .subscribe((event: KeyboardEvent) => this._keyboardService.keyDownHandler(event, index, this.items.toArray()))
         );
     }
 }

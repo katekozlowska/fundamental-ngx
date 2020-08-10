@@ -12,9 +12,9 @@ import {
     Output,
     ViewEncapsulation
 } from '@angular/core';
-import { CheckboxComponent } from '../checkbox/checkbox/checkbox.component';
-import { DefaultMenuItem } from '../menu/default-menu-item.class';
-import { RadioButtonComponent } from '../radio/radio-button/radio-button.component';
+import { CheckboxComponent } from '../../checkbox/checkbox/checkbox.component';
+import { DefaultMenuItem } from '../../menu/default-menu-item.class';
+import { RadioButtonComponent } from '../../radio/radio-button/radio-button.component';
 
 /**
  * The component that represents a list item.

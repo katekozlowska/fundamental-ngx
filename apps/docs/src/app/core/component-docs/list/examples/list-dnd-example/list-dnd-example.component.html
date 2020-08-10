@@ -1,6 +1,6 @@
 <h3>Drag And Drop</h3>
 
-<ul fd-list fd-dnd-list [listMode]="true" [(items)]="values">
+<ul fd-list fd-dnd-list [(items)]="values">
     <li fd-list-item fd-dnd-item *ngFor="let value of values">
         <span fd-list-title>
             List item {{value}}
@@ -12,7 +12,7 @@
 
 <h3>Drag And Drop with Replacement Indicator</h3>
 
-<ul fd-list fd-dnd-list [listMode]="true" [replaceMode]="true" [(items)]="valuesTwo">
+<ul fd-list fd-dnd-list [replaceMode]="true" [(items)]="valuesTwo">
     <li fd-list-item fd-dnd-item *ngFor="let value of valuesTwo">
         <span fd-list-title>
             List item {{value}}

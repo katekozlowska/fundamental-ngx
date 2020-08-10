@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ListModule } from './list.module';
+import { ListModule } from '../list.module';
 
 @Component({
     template: ` <li #directiveElement fd-list-item [selected]="selected">List Item Test Text</li> `

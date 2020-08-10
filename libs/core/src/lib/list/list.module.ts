@@ -1,24 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
-import { ListItemComponent } from './list-item.component';
-import {
-    ListIconDirective,
-    ListLabelDirective,
-    ListSecondaryDirective,
-} from './list.directives';
+import { ListItemComponent } from './list-item/list-item.component';
 import { ListMessageDirective } from './list-message.directive';
 import { ListLinkDirective } from './directives/list-link.directive';
-import { ListFormItemDirective } from './directives/list-form-item.directive';
 import { FormModule } from '../form/form.module';
 import { ListFooterDirective } from './directives/list-footer.directive';
 import { ListTitleDirective } from './directives/list-title.directive';
 import { ListGroupHeaderDirective } from './directives/list-group-header.directive';
+import { ListSecondaryDirective } from './directives/list-secondary.directive';
+import { ListIconDirective } from './directives/list-icon.directive';
 @NgModule({
     declarations: [
         ListComponent,
         ListItemComponent,
-        ListLabelDirective,
         ListTitleDirective,
         ListSecondaryDirective,
         ListIconDirective,
@@ -26,13 +21,11 @@ import { ListGroupHeaderDirective } from './directives/list-group-header.directi
         ListGroupHeaderDirective,
         ListMessageDirective,
         ListLinkDirective,
-        ListFormItemDirective,
     ],
     imports: [CommonModule, FormModule],
     exports: [
         ListComponent,
         ListItemComponent,
-        ListLabelDirective,
         ListTitleDirective,
         ListFooterDirective,
         ListGroupHeaderDirective,
@@ -40,7 +33,6 @@ import { ListGroupHeaderDirective } from './directives/list-group-header.directi
         ListIconDirective,
         ListMessageDirective,
         ListLinkDirective,
-        ListFormItemDirective,
     ]
 })
 export class ListModule {}

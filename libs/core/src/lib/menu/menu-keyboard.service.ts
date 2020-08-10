@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
 import { Injectable, Output } from '@angular/core';
 import { DefaultMenuItem } from './default-menu-item.class';
-import { ListItemComponent } from '../list/list-item.component';
+import { ListItemComponent } from '../list/list-item/list-item.component';
 import { KeyUtil } from '../utils/functions/key-util';
 
 @Injectable()

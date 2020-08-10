@@ -21,7 +21,7 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ListItemComponent } from '../list/list-item.component';
+import { ListItemComponent } from '../list/list-item/list-item.component';
 import { ListMessageDirective } from '../list/list-message.directive';
 import { ComboboxItem } from './combobox-item';
 import { MenuKeyboardService } from '../menu/menu-keyboard.service';
